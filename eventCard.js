@@ -8,7 +8,7 @@ class EventCard extends HTMLElement {
     // this.shadowRoot.appendChild()
 
 
-    this.innerHTML = 'Testing event card'
+    this.innerHTML = `${this.getAttribute('name')}`
   }
 }
 
