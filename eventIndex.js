@@ -4,19 +4,19 @@ function init() {
   console.log('DOM Loaded!')
 
   // * VARIABLES
-  // declare an empty array to store the upcomingLaunchesData objects
-  let upcomingLaunchesData = []
+  // declare an empty array to store the upcomingEventData objects
+  let upcomingEventData = []
 
   // empty ul tag in index.html
   const eventList = document.querySelector('#events')
 
-  // * async function to fetch the data and store it in the upcomingLaunchesData array
-  async function getLaunches() {
+  // * async function to fetch the data and store it in the upcomingEventData array
+  async function getEvents() {
     // fetch data and log it in the console
     try {
       const response = await window.fetch('https://api.spacexdata.com/v4/launches/upcoming')
-      upcomingLaunchesData = await response.json()
-      console.log('Upcoming Launches : ', upcomingLaunchesData)
+      upcomingEventData = await response.json()
+      console.log('Upcoming Launches : ', upcomingEventData)
 
       // if data cannot be fetched, log the error in the console
     } catch (err) {
@@ -24,16 +24,16 @@ function init() {
     }
   }
 
-  // call the getLaunches function to fetch the data
-  getLaunches()
+  // call the getEvents function to fetch the data
+  getEvents()
 
   // Displaying the data
-  function displayLaunches() {
-    console.log('Displaying launches : ', upcomingLaunchesData)
+  function displayEvents() {
+    console.log('Displaying launches : ', upcomingEventData)
     eventList.innerHTML = 'event list goes here'
   }
 
-  displayLaunches()
+  displayEvents()
 }
 
 window.addEventListener('DOMContentLoaded', init)
