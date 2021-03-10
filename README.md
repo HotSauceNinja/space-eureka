@@ -1,5 +1,3 @@
-# Vizibl Code Test 🤓
-
 Table of Contents
 
 - [Brief](#brief)
@@ -20,7 +18,7 @@ product here.
 
 ### The Quest ⚔
 
-**As a Vizibl team member, I want to see a list of results pulled from a public API of the
+**As a team member, I want to see a list of results pulled from a public API of the
 engineers choosing displayed on a web page because it allows me to see how the
 engineer writes code.**
 
