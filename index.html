@@ -5,15 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space Events API</title>
+    <style>
+      body {
+        background-color: mintcream;
+        text-align: center;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        list-style-type: none;
+      }
+    </style>
   </head>
 
   <body>
     <h1>Hello world from space!</h1>
+    <p>The place to find out about all SpaceX Rocket Launches</p>
+    <p>
+      Collect 30 cards and ask your parents to send your name and photo to the
+      address on the back of the card for the chance to attend our next launch!
+    </p>
 
     <!-- Event List -->
     <ul id="events"></ul>
 
-    <button type="button" id="addEventsButton">Add More Events!</button>
+    <button type="button" id="addEventsButton">Add More Events</button>
 
     <!-- JavaScript -->
     <script src="index.js"></script>

@@ -1,15 +1,52 @@
 const template = document.createElement('template')
 template.innerHTML = `
+  <style>
+    li {
+      background-color: lightblue;
+      width: 350px;
+      height: 650px;
+      margin: 10px;
+      padding: 5px 20px;
+      border: 18px solid teal;
+      border-radius: 25px;
+      text-align: center;
+
+      display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+    .about {
+      flex-grow: 2;
+    }
+
+    .content {
+      justify-content: space-evenly;
+    }
+
+  </style>
+
   <li>
-    <h3></h3>
-    <p id="event-date"></p>
-    <div class="content">
+    <div>
+      <h3></h3>
+      <p id="event-date"></p>
       <img />
+    </div>
+    <div class="content">
       <div class="about">
+        <strong>
+          <p>More info: </p>
+        </strong>
         <p id="event-details"></p>
         <p id="event-failures"></p>
-        <a id="wikipedia-link"></a>
-        <a id="youtube-link"></a>
+        <div>
+          <a id="wikipedia-link"></a>
+        </div>
+        <div>
+          <a id="youtube-link"></a>
+        </div>
       </div>
     </div>
   </li> 
@@ -31,7 +68,7 @@ class EventCard extends HTMLElement {
 
     // I also wanted to display the webcast but was unable to do so because of x frame bypass - Left a note about this in my README
     this.shadowRoot.querySelector('#youtube-link').href = this.getAttribute('webcast')
-    this.shadowRoot.querySelector('#youtube-link').innerText = 'Watch on Youtube'
+    this.shadowRoot.querySelector('#youtube-link').innerHTML = 'Watch on Youtube'
 
   }
 }
