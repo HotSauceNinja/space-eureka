@@ -34,7 +34,7 @@ Then the next N results should be loaded
 
 ## SpaceX Rocket Patches
 
-![SpaceX Rocket Launch Patches]()
+![SpaceX Rocket Launch Patches](https://github.com/HotSauceNinja/space-eureka/blob/main/images/SpaceX_patches_demo.gif?raw=true)
 
 ### Short Description
 
