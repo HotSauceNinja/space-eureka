@@ -46,25 +46,22 @@ function init() {
 
     // Map through the listToDisplay array and display the respective event cards for all array items
     const eventsHTML = listToDisplay.map(event => {
-      console.log('event.date_unix : ', event.date_unix)
       const unixTime = event.date_unix
       const date = new Date(unixTime * 1000).toUTCString()
-      console.log('date is ', date)
 
-      // const formattedDate = hours + ':' + minutes.substr(-2) + seconds.substr(-2)
       return ` 
         <event-card 
           name="${event.name}" 
           date="Launch Date: ${date}"
           patch="${event.links.patch.small}"
-          details="${(event.details !== null) ? event.details : 'Check out Wikipedia and Youtube for more information about this launch!'}"
+          details="${(event.details !== null) ? event.details : 'Check out Wikipedia and YouTube links below for more information about this launch!'}"
           wikipedia="${(event.links.wikipedia !== null) ? event.links.wikipedia : ''}"
           success="${event.success}" 
           webcast="${(event.links.webcast !== null) ? event.links.webcast : ''}"
           failures="${(event.failures.length === 0) ? 'Successfuly launched!' : event.failures.map(failure => `Failure Reason: ${failure.reason}`)}"
         >
         </event-card>
-      ` // This returns each event as string
+      ` // This returns each event as a string
     }).join(' ')
 
     // Turn all the event data returned previously as string into HTML content

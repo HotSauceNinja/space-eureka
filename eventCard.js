@@ -1,4 +1,5 @@
 const template = document.createElement('template')
+
 template.innerHTML = `
   <style>
     li {
@@ -82,8 +83,6 @@ template.innerHTML = `
       font-weight: 900;
       text-shadow: 1px 1px darkteal;      
     }
-
-
   </style>
 
   <li>
@@ -117,6 +116,7 @@ class EventCard extends HTMLElement {
     this.attachShadow({ mode: 'open' })
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
+    // Get elements
     this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name')
     this.shadowRoot.querySelector('#event-date').innerText = this.getAttribute('date')
     this.shadowRoot.querySelector('img').src = this.getAttribute('patch')
@@ -124,14 +124,11 @@ class EventCard extends HTMLElement {
     this.shadowRoot.querySelector('#event-failures').innerText = this.getAttribute('failures')
     this.shadowRoot.querySelector('#wikipedia-link').href = this.getAttribute('wikipedia')
     this.shadowRoot.querySelector('#wikipedia-link').innerText = 'Read more'
-
-    // I also wanted to display the webcast but was unable to do so because of x frame bypass - Left a note about this in my README
     this.shadowRoot.querySelector('#youtube-link').href = this.getAttribute('webcast')
     this.shadowRoot.querySelector('#youtube-link').innerHTML = 'Watch launch'
 
     // Assign true or false class name depending if launch was successful or not 
     this.shadowRoot.querySelector('li').classList.add(this.getAttribute('success'))
-
   }
 }
 
