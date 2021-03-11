@@ -38,15 +38,12 @@ template.innerHTML = `
       display:flex;
       flex-direction: column;
       justify-content: space-between;
-      // justify-content: flex-start;
       margin: 0 10px;
       padding: 0;
-      // background-color: teal;
       height: 40%;
     }
 
     .about {
-      // background-color:teal;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -55,6 +52,7 @@ template.innerHTML = `
 
     h3 {
       color: darkslategray;
+      text-shadow: 1px 2px rgb(228, 235, 235);
       font-size: 35px;
       font-weight: 800;
       margin:0;
@@ -76,7 +74,6 @@ template.innerHTML = `
       text-decoration: none;
       font-weight: 700;
       text-shadow: 0.5px 0.5px darkslategray;
-      // color: darkslategray;
       color: dodgerblue;
     }
 
@@ -84,8 +81,6 @@ template.innerHTML = `
       color: teal;
       font-weight: 900;
       text-shadow: 1px 1px darkteal;      
-      // text-shadow: 1px 2px 10px red;
-
     }
 
 
@@ -128,11 +123,11 @@ class EventCard extends HTMLElement {
     this.shadowRoot.querySelector('#event-details').innerText = this.getAttribute('details')
     this.shadowRoot.querySelector('#event-failures').innerText = this.getAttribute('failures')
     this.shadowRoot.querySelector('#wikipedia-link').href = this.getAttribute('wikipedia')
-    this.shadowRoot.querySelector('#wikipedia-link').innerText = 'Wikipedia'
+    this.shadowRoot.querySelector('#wikipedia-link').innerText = 'Read more'
 
     // I also wanted to display the webcast but was unable to do so because of x frame bypass - Left a note about this in my README
     this.shadowRoot.querySelector('#youtube-link').href = this.getAttribute('webcast')
-    this.shadowRoot.querySelector('#youtube-link').innerHTML = 'Youtube'
+    this.shadowRoot.querySelector('#youtube-link').innerHTML = 'Watch launch'
 
     // Assign true or false class name depending if launch was successful or not 
     this.shadowRoot.querySelector('li').classList.add(this.getAttribute('success'))

@@ -43,7 +43,6 @@ function init() {
 
     // Store required number of displayed items into a new array with the length of numberOfResultsDisplayed
     const listToDisplay = upcomingEventData.slice(0, numberOfResultsDisplayed)
-    // console.log('listToDisplay', listToDisplay)
 
     // Map through the listToDisplay array and display the respective event cards for all array items
     const eventsHTML = listToDisplay.map(event => {
@@ -60,7 +59,7 @@ function init() {
           failures="${(event.failures.length === 0) ? 'Successfuly launched!' : event.failures.map(failure => `Failure Reason: ${failure.reason}`)}"
         >
         </event-card>
-      ` // return each event as string
+      ` // This returns each event as string
     }).join(' ')
 
     // Turn all the event data returned previously as string into HTML content
