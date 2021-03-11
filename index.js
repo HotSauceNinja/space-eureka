@@ -24,7 +24,7 @@ function init() {
 
     // fetch data and log it in the console
     try {
-      const response = await window.fetch('https://api.spacexdata.com/v4/launches/')
+      const response = await window.fetch('https://api.spacexdata.com/v4/launches/past')
       upcomingEventData = await response.json()
       console.log('Upcoming Launches : ', upcomingEventData)
 
@@ -51,19 +51,13 @@ function init() {
       return ` 
         <event-card 
           name="${event.name}" 
-          date="${event.date_utc}"
+          date="Launch Date: ${event.date_utc}"
           patch="${event.links.patch.small}"
-          details="${(event.details !== null) ? event.details : ''}"
+          details="${(event.details !== null) ? event.details : 'Check out Wikipedia and Youtube for more information about this launch!'}"
           wikipedia="${(event.links.wikipedia !== null) ? event.links.wikipedia : ''}"
           success="${event.success}" 
           webcast="${(event.links.webcast !== null) ? event.links.webcast : ''}"
-          failures="${(event.failures.length === 0) ?
-          ''
-          :
-          event.failures.map(failure => {
-            return `Failure Reason: ${failure.reason}`
-          })
-        }"
+          failures="${(event.failures.length === 0) ? 'Successfuly launched!' : event.failures.map(failure => `Failure Reason: ${failure.reason}`)}"
         >
         </event-card>
       ` // return each event as string
