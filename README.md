@@ -65,4 +65,4 @@ MIT
 
 ### Resources
 
-The project includes the use of a [photo by Pixabay from Pexels](https://www.pexels.com/photo/aerospace-engineering-exploration-launch-34521/) and the (unofficial) SpaceX-API](https://github.com/r-spacex/SpaceX-API).
+The project includes the use of a [photo by Pixabay from Pexels](https://www.pexels.com/photo/aerospace-engineering-exploration-launch-34521/) and the (unofficial) [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
