@@ -20,6 +20,7 @@ function init() {
   //* FUNCTION DECLARATIONS
   // Async function to fetch the data and store it in the upcomingEventData array
   async function getEvents() {
+    displayLoading()
 
     // Fetch data and log it in the console
     try {
@@ -35,15 +36,19 @@ function init() {
     }
   }
 
+  //Function to display page load
+  function displayLoading() {
+    eventList.innerHTML = '<li id="error-message">...Loading the patches...</li>'
+    hideLoadButton()
+  }
+
   // Function to display error
   function displayError(err) {
     console.log('Something went wrong : ', err)
 
     //Show an error message if the content cannot be loaded
     eventList.innerHTML = '<li id="error-message">Something went wrong</li>'
-
-    //Hide the Load More button
-    addEventsButton.style.display = 'none'
+    hideLoadButton()
   }
 
 
@@ -87,8 +92,13 @@ function init() {
 
     // If we reach the end of the event array, hide the button
     if (numberOfResultsDisplayed >= upcomingEventData.length) {
-      addEventsButton.style.display = 'none'
+      hideLoadButton()
     }
+  }
+
+  // Function to hide Load More Patches button
+  function hideLoadButton() {
+    addEventsButton.style.display = 'none'
   }
 
 
