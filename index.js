@@ -18,7 +18,7 @@ function init() {
 
 
   //* FUNCTION DECLARATIONS
-  // Async function to fetch the data and store it in the upcomingEventData array
+  //* Async function to fetch the data and store it in the upcomingEventData array
   async function getEvents() {
     displayLoading()
 
@@ -30,29 +30,27 @@ function init() {
       // Display list of events within the ul
       displayEvents()
 
-      // if data cannot be fetched, log the error in the console
+      // if data cannot be fetched, display error
     } catch (err) {
       displayError(err)
     }
   }
 
-  //Function to display page load
+  //* Function to display page load
   function displayLoading() {
-    eventList.innerHTML = '<li id="error-message">...Loading the patches...</li>'
-    hideLoadButton()
+    eventList.innerHTML = '<li>...Loading the patches...</li>'
   }
 
-  // Function to display error
+  //* Function to display error
   function displayError(err) {
     console.log('Something went wrong : ', err)
 
     //Show an error message if the content cannot be loaded
-    eventList.innerHTML = '<li id="error-message">Something went wrong</li>'
+    eventList.innerHTML = '<li>Something went wrong</li>'
     hideLoadButton()
   }
 
-
-  // Function to display the data
+  //* Function to display the data
   function displayEvents() {
 
     // Store required number of displayed items into a new array with the length of numberOfResultsDisplayed
@@ -60,6 +58,7 @@ function init() {
 
     // Map through the listToDisplay array and display the respective event cards for all array items
     const eventsHTML = listToDisplay.map(event => {
+
       // Convert date from unix to Coordinated Universal Time
       const unixTime = event.date_unix
       const date = new Date(unixTime * 1000).toUTCString()
@@ -69,10 +68,10 @@ function init() {
           name="${event.name}" 
           date="Launch Date: ${date}"
           patch="${event.links.patch.small}"
-          details="${(event.details !== null) ? event.details : 'Check out Wikipedia and YouTube links below for more information about this launch!'}"
+          details="${(event.details !== null) ? event.details : 'Follow the links below for more information about this launch, or visit again another time to check for updates.'}"
           wikipedia="${(event.links.wikipedia !== null) ? event.links.wikipedia : ''}"
-          success="${event.success}" 
           webcast="${(event.links.webcast !== null) ? event.links.webcast : ''}"
+          success="${event.success}"
           failures="${(event.failures.length === 0) ? 'Successfuly launched!' : event.failures.map(failure => `Failure Reason: ${failure.reason}`)}"
         >
         </event-card>
@@ -83,7 +82,7 @@ function init() {
     eventList.innerHTML = eventsHTML
   }
 
-  // Function to increase number of events displayed by 10
+  //* Function to increase number of events displayed by 10
   function addMoreEvents() {
 
     // When the addEventsButton is clicked, increase the number of results displayed with 10
@@ -96,7 +95,7 @@ function init() {
     }
   }
 
-  // Function to hide Load More Patches button
+  //* Function to hide Load More Patches button
   function hideLoadButton() {
     addEventsButton.style.display = 'none'
   }
