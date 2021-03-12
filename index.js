@@ -35,10 +35,14 @@ function init() {
     }
   }
 
-  // declare function to display error
+  // Function to display error
   function displayError(err) {
     console.log('Something went wrong : ', err)
+
+    //Show an error message if the content cannot be loaded
     eventList.innerHTML = '<li id="error-message">Something went wrong</li>'
+
+    //Hide the Load More button
     addEventsButton.style.display = 'none'
   }
 
