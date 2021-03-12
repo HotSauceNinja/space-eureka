@@ -1,11 +1,13 @@
 ## Table of Contents
 
 - [Brief](#brief)
-- [Space Events API](#space-events-api)
+- [SpaceX Rocket Patches](#spacex-rocket-patches)
   - [Short Description](#short-description)
   - [Technology Used](#technology-used)
   - [How to Run](#how-to-run)
   - [Viewing Instructions](#viewing-instructions)
+  - [License](#license)
+  - [Resources](#resources)
 
 ## Brief
 
@@ -38,7 +40,7 @@ Then the next N results should be loaded
 
 ### Short Description
 
-The SpaceX Rocket Patches is a fictitional web page displaying past SpaceX Rocket launches fetched from the [SpaceX-API](https://github.com/r-spacex/SpaceX-API) and framed as retro collectible patches for children.
+The SpaceX Rocket Patches is a fictitional web page displaying past SpaceX rocket launches fetched from the [SpaceX-API](https://github.com/r-spacex/SpaceX-API) and showcased as a collection of retro collectible patches for children.
 
 ### Technology Used
 
@@ -49,14 +51,18 @@ Built using Vanilla JavaScript, HTML, CSS and Web Components.
 Installation Steps:
 
 - Clone or download the repo
-- Open project in your text editor
+- Open the project in your text editor
 
 **_The app does not require installing any dependencies or getting any access tokens._**
 
 ### Viewing Instructions
 
-The web application can be viewed in web browsers by navigating to index.html and opening with Live Server.
+The web application can be viewed in web browsers by navigating to the project index.html file and opening with Live Server.
 
-# License
+### License
 
 MIT
+
+### Resources
+
+The project includes the use of a [photo by Pixabay from Pexels](https://www.pexels.com/photo/aerospace-engineering-exploration-launch-34521/) and the (unofficial) SpaceX-API](https://github.com/r-spacex/SpaceX-API).

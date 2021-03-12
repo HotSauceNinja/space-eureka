@@ -1,6 +1,5 @@
-// * Wait for the DOM to load before running any JavaScript to make user experience smoother
+// * Wait for the DOM to load before running any JavaScript
 function init() {
-  // Confirm the DOM has loaded
   console.log('DOM Loaded!')
 
   // * VARIABLE DECLARATIONS
@@ -19,22 +18,28 @@ function init() {
 
 
   //* FUNCTION DECLARATIONS
-  // async function to fetch the data and store it in the upcomingEventData array
+  // Async function to fetch the data and store it in the upcomingEventData array
   async function getEvents() {
 
-    // fetch data and log it in the console
+    // Fetch data and log it in the console
     try {
       const response = await window.fetch('https://api.spacexdata.com/v4/launches/past')
       upcomingEventData = await response.json()
-      console.log('Upcoming Launches : ', upcomingEventData)
 
       // Display list of events within the ul
       displayEvents()
 
       // if data cannot be fetched, log the error in the console
     } catch (err) {
-      console.log('An error occured : ', err)
+      displayError(err)
     }
+  }
+
+  // declare function to display error
+  function displayError(err) {
+    console.log('Something went wrong : ', err)
+    eventList.innerHTML = '<li id="error-message">Something went wrong</li>'
+    addEventsButton.style.display = 'none'
   }
 
 
@@ -46,6 +51,7 @@ function init() {
 
     // Map through the listToDisplay array and display the respective event cards for all array items
     const eventsHTML = listToDisplay.map(event => {
+      // Convert date from unix to Coordinated Universal Time
       const unixTime = event.date_unix
       const date = new Date(unixTime * 1000).toUTCString()
 
@@ -67,7 +73,6 @@ function init() {
     // Turn all the event data returned previously as string into HTML content
     eventList.innerHTML = eventsHTML
   }
-
 
   // Function to increase number of events displayed by 10
   function addMoreEvents() {
